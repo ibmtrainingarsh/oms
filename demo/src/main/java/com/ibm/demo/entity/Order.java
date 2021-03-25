@@ -1,11 +1,15 @@
 package com.ibm.demo.entity;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 public class Order {
 	@NotNull
+	@NotBlank
 	private String item;
+	@NotNull
 	private float price;
+	private int id;//TODO by the db as pk
 
 	public String getItem() {
 		return item;
@@ -24,6 +28,14 @@ public class Order {
 			throw new IllegalArgumentException("Price cannot be negative");
 		}
 		this.price = price;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }
