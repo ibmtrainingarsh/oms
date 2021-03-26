@@ -3,13 +3,24 @@ package com.ibm.demo.entity;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.data.annotation.Id;
+
 public class Order {
 	@NotNull
 	@NotBlank
 	private String item;
 	@NotNull
 	private float price;
-	private int id;//TODO by the db as pk
+	@Id
+	private String id;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public String getItem() {
 		return item;
@@ -30,12 +41,5 @@ public class Order {
 		this.price = price;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
+	
 }
